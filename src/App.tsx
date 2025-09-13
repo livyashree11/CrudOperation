@@ -1,13 +1,18 @@
 import{BrowserRouter,Routes,Route} from 'react-router-dom';
 import Grid from './components/Grid';
 import View from './components/View';
+import CreateUpdate from './components/CreateUpdate';
+
 function App() {
   return(
     <>
 <BrowserRouter>
    <Routes>
+    <Route path = '/create' element={<CreateUpdate/>}/>
      <Route path = '/grid' element={<Grid/>}/>
-     <Route path = '/grid' element={<View/>}/>
+      <Route path = '/update' element={<CreateUpdate/>}/>
+     <Route path = '/view' element={<View/>}/>
+  
     </Routes>
 </BrowserRouter>
     </>
