@@ -1,11 +1,11 @@
 import { Button, Paper, Table, TableBody, TableCell, TableContainer, TableRow, TextField } from "@mui/material";
 import {useForm} from "react-hook-form"
 import type { Users } from "../shared/models/User.model";
-import { createUser } from "../data/http.service";
+import { createUser, UpdateUser } from "../data/http.service";
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
-import { Pattern } from "@mui/icons-material";
+
 
 const CreateUpdate = () =>{
     const{register,handleSubmit,reset,formState :{errors} }= useForm<Users>();
@@ -22,7 +22,7 @@ const CreateUpdate = () =>{
 
     const onSubmit =async (userData:Users) => {
       if(location.pathname === '/update'){
-          await updateUser(userData) ;
+          await UpdateUser(userData) ;
           }else{
         await createUser(userData) ;
           }
@@ -85,7 +85,6 @@ export default CreateUpdate;
 
 
 
-function updateUser(userData: Users) {
-  throw new Error("Function not implemented.");
-}
+
+
 
